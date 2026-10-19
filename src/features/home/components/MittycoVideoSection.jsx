@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import picklePoster from "../../../assets/mittyco/pickle-range.jpeg";
 import coconutPoster from "../../../assets/mittyco/coconut-oil-cold.jpeg";
@@ -29,16 +30,43 @@ const videos = {
 };
 
 function BusinessVideo({ video, featured = false }) {
+    const videoRef = useRef(null);
+
+    useEffect(() => {
+        const videoElement = videoRef.current;
+        if (!videoElement) return undefined;
+
+        const startPlayback = () => {
+            videoElement.muted = true;
+            videoElement.play().catch(() => {
+                // Autoplay can still be blocked by a browser policy.
+            });
+        };
+
+        if (videoElement.readyState >= HTMLMediaElement.HAVE_CURRENT_DATA) {
+            startPlayback();
+        } else {
+            videoElement.addEventListener("canplay", startPlayback);
+        }
+
+        return () => videoElement.removeEventListener("canplay", startPlayback);
+    }, [video.src]);
+
     return (
         <div className={`mittyco-story-video-card ${featured ? "mittyco-story-video-card--featured" : ""}`}>
             <div className="mittyco-story-video-frame">
                 <video
+                    ref={videoRef}
                     className="mittyco-story-video"
                     autoPlay
                     muted
                     loop
                     playsInline
-                    controls
+                    onPause={(event) => {
+                        event.currentTarget.play().catch(() => {
+                            // Autoplay can still be blocked by a browser policy.
+                        });
+                    }}
                     preload="metadata"
                     poster={video.poster}
                 >
