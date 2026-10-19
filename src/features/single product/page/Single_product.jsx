@@ -655,7 +655,7 @@ function Single_product() {
                     <div className="main-image-wrapper">
                         <div className="main-image" style={{ cursor: 'pointer' }}>
                             <button className="wishlist-icon" onClick={(e) => { e.stopPropagation(); addToWishlist(); }}>
-                                {isWishlisted ? <FaHeart color="#fd0707ff" /> : <FaRegHeart color="#4B636D" />}
+                                {isWishlisted ? <FaHeart color="#fd0707ff" /> : <FaRegHeart color="#1F5B3E" />}
                             </button>
                             <img
                                 onClick={() => {

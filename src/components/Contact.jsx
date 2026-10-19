@@ -1,7 +1,6 @@
 import { useState } from "react";
 import "./../Contact.css"
 import { getAuthValue } from "../features/auth/authUtils";
-import { WHATSAPP_NUMBER } from "../config/contact";
 
 const ContactUs = () => {
     const [formData, setFormData] = useState(() => ({
@@ -19,17 +18,17 @@ const ContactUs = () => {
         });
     };
 
-    const sendWhatsApp = (e) => {
+    const sendEmail = (e) => {
         e.preventDefault();
 
         const { name, email, phone, subject, message } = formData;
 
-        if (!name || !email || !phone || !subject || !message) {
+        if (!name || !email || !subject || !message) {
             alert("Please fill in all fields.");
             return;
         }
 
-        const text = `Hello eehook Team,
+        const text = `Hello Mittyco Team,
 
 Name: ${name}
 
@@ -44,12 +43,7 @@ ${message}
 
 Thank you.`;
 
-        const messageWindow = window.open(
-            `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`,
-            "_blank",
-            "noopener,noreferrer"
-        );
-        if (messageWindow) messageWindow.opener = null;
+        window.location.href = `mailto:infomittyco@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(text)}`;
     };
 
     return (
@@ -69,7 +63,7 @@ Thank you.`;
                     Have a question about our collections,
                     an order, or need assistance?
                     Fill out the form below and send us
-                    a message directly on WhatsApp.
+                    a message directly by email.
                 </p>
 
             </div>
@@ -101,7 +95,7 @@ Thank you.`;
                         <h4>Response Time</h4>
 
                         <p>
-                            We usually reply within a few hours on WhatsApp.
+                            We usually reply within a few business hours by email.
                         </p>
 
                     </div>
@@ -111,7 +105,7 @@ Thank you.`;
                         <h4>Need Immediate Help?</h4>
 
                         <p>
-                            Send us a WhatsApp message and our team will assist you as soon as possible.
+                            Email us at infomittyco@gmail.com and our team will assist you as soon as possible.
                         </p>
 
                     </div>
@@ -122,7 +116,7 @@ Thank you.`;
 
                 <form
                     className="contact-form"
-                    onSubmit={sendWhatsApp}
+                    onSubmit={sendEmail}
                 >
 
                     <div className="input-group">
@@ -160,7 +154,7 @@ Thank you.`;
                     <div className="input-group">
 
                         <label>
-                            Phone Number
+                            Phone Number (optional)
                         </label>
 
                         <input
@@ -250,7 +244,7 @@ Thank you.`;
                         type="submit"
                     >
 
-                        Send via WhatsApp →
+                            Send via Email →
 
                     </button>
 

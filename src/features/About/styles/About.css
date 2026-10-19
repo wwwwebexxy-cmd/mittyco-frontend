@@ -7,7 +7,7 @@
 .about-modern-wrapper {
     width: 100%;
     min-width: 0;
-    background-color: #F8F9F3;
+    background-color: #FBFAF4;
     color: #1A1A1A;
     font-family: 'Inter', sans-serif;
     overflow-x: hidden;
@@ -51,7 +51,7 @@
     letter-spacing: 2px;
     text-transform: uppercase;
     font-weight: 600;
-    color: #FF9000;
+    color: #F4C430;
     margin-bottom: 20px;
     display: block;
 }
@@ -61,7 +61,7 @@
     line-height: 1.1;
     font-family: 'Playfair Display', serif;
     font-weight: 600;
-    color: #4B636D;
+    color: #1F5B3E;
     margin-bottom: 30px;
     overflow-wrap: anywhere;
 }
@@ -69,19 +69,19 @@
 .hero-italic {
     font-style: italic;
     font-weight: 400;
-    color: #6B8490;
+    color: #4F8062;
 }
 
 .hero-subtext {
     font-size: 1.1rem;
     line-height: 1.7;
-    color: #6B8490;
+    color: #4F8062;
     margin-bottom: 40px;
     max-width: 500px;
 }
 
 .hero-modern-btn {
-    background: #4B636D;
+    background: #1F5B3E;
     color: #fff;
     border: none;
     padding: 16px 36px;
@@ -96,7 +96,7 @@
 }
 
 .hero-modern-btn:hover {
-    background: #FF9000;
+    background: #F4C430;
     transform: translateY(-2px);
     box-shadow: 0 10px 20px rgba(255, 144, 0, 0.2);
 }
@@ -153,7 +153,7 @@
     content: "";
     position: absolute;
     top: 0; left: 0; right: 0; bottom: 0;
-    background-image: url("../../../assets/navbar-logo.png");
+    background-image: url("../../../assets/mittyco/mittyco-logo.jpeg");
     background-size: 250px;
     background-repeat: repeat;
     background-position: center;
@@ -180,14 +180,14 @@
     font-size: 3rem;
     line-height: 1.2;
     margin-bottom: 30px;
-    color: #4B636D;
+    color: #1F5B3E;
     overflow-wrap: anywhere;
 }
 
 .story-sticky p {
     font-size: 1.1rem;
     line-height: 1.8;
-    color: #6B8490;
+    color: #4F8062;
     margin-bottom: 20px;
     overflow-wrap: anywhere;
 }
@@ -221,7 +221,7 @@
     position: absolute;
     left: 0;
     top: -4px;
-    color: #FF9000;
+    color: #F4C430;
     font-size: 1.5rem;
     font-family: 'Playfair Display', serif;
 }
@@ -233,7 +233,7 @@
 .highlight-title {
     font-size: 1.15rem;
     font-family: 'Playfair Display', serif;
-    color: #4B636D;
+    color: #1F5B3E;
     margin-bottom: 8px;
     letter-spacing: 0.5px;
     display: block;
@@ -241,7 +241,7 @@
 
 .highlight-text {
     font-size: 1rem;
-    color: #6B8490;
+    color: #4F8062;
     line-height: 1.6;
     display: block;
     overflow-wrap: anywhere;
@@ -259,7 +259,7 @@
     content: "";
     position: absolute;
     top: 0; left: 0; right: 0; bottom: 0;
-    background-image: url("../../../assets/navbar-logo.png");
+    background-image: url("../../../assets/mittyco/mittyco-logo.jpeg");
     background-size: 250px;
     background-repeat: repeat;
     background-position: center;
@@ -277,12 +277,12 @@
     font-family: 'Playfair Display', serif;
     font-size: 3rem;
     margin-bottom: 15px;
-    color: #4B636D;
+    color: #1F5B3E;
 }
 
 .values-header p {
     font-size: 1.2rem;
-    color: #8A9DA6;
+    color: #77907F;
     font-style: italic;
     font-family: 'Playfair Display', serif;
 }
@@ -297,7 +297,7 @@
 }
 
 .value-card {
-    background: #F8F9F3;
+    background: #FBFAF4;
     padding: 45px 40px;
     border-radius: 24px;
     transition: transform 0.4s ease, background 0.4s ease;
@@ -305,27 +305,27 @@
 
 .value-card:hover {
     transform: translateY(-8px);
-    background: #F8F9F3;
+    background: #FBFAF4;
 }
 
 .value-card h3 {
     font-size: 1.6rem;
     font-family: 'Playfair Display', serif;
-    color: #FF9000;
+    color: #F4C430;
     margin-bottom: 20px;
 }
 
 .value-card p {
     font-size: 1.05rem;
     line-height: 1.7;
-    color: #6B8490;
+    color: #4F8062;
     overflow-wrap: anywhere;
 }
 
 /* ================== EDITORIAL QUOTE ================== */
 .about-modern-quote {
     padding: 10% 8%;
-    background: #4B636D;
+    background: #1F5B3E;
     color: #fff;
     text-align: center;
     border: 1px solid;
@@ -346,7 +346,56 @@
     font-size: 1rem;
     letter-spacing: 2px;
     text-transform: uppercase;
-    color: #FF9000;
+    color: #F4C430;
+}
+
+.mittyco-about-image-frame img {
+    object-fit: cover;
+    object-position: center;
+}
+
+.about-brand-mark {
+    display: block;
+    width: min(280px, 70%);
+    height: 92px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 12px;
+    margin: 0 auto 28px;
+}
+
+.value-icon {
+    color: #F4C430;
+    font-size: 28px;
+    margin-bottom: 18px;
+}
+
+.about-social-link,
+.about-contact-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #1F5B3E;
+    font-weight: 700;
+    margin-top: 16px;
+}
+
+.about-social-link:hover,
+.about-contact-link:hover {
+    color: #B07A00;
+}
+
+.about-contact-link {
+    color: #fff;
+    border: 1px solid rgba(255,255,255,.55);
+    border-radius: 999px;
+    padding: 12px 20px;
+}
+
+.about-contact-link:hover {
+    color: #123c29;
+    background: #F4C430;
+    border-color: #F4C430;
 }
 
 /* ================== RESPONSIVE ================== */

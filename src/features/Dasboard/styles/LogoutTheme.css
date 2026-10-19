@@ -11,6 +11,6 @@
 }
 
 .logout:hover {
-    color: var(--admin-brand-dark, #d97700);
+    color: var(--admin-brand-dark, #DCA900);
     background: #fff4e6;
 }

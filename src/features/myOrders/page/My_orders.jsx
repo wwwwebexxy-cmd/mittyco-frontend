@@ -86,7 +86,7 @@ const MyOrders = () => {
         if (!date) return "—";
 
         return new Date(date).toLocaleDateString(
-            "en-AE",
+            "en-IN",
             {
                 day: "2-digit",
                 month: "short",

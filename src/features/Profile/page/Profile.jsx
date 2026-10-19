@@ -37,7 +37,7 @@ const Profile = () => {
     address_line: "",
     city: "",
     postal_code: "",
-    country: "United Arab Emirates",
+    country: "India",
     is_default: false
   });
 
@@ -101,7 +101,7 @@ const Profile = () => {
       address_line: "",
       city: "",
       postal_code: "",
-      country: "United Arab Emirates",
+      country: "India",
       is_default: false
     });
 
@@ -204,7 +204,7 @@ const Profile = () => {
       address_line: address.address_line || "",
       city: address.city || "",
       postal_code: address.postal_code || "",
-      country: address.country || "United Arab Emirates",
+      country: address.country || "India",
       is_default: address.is_default
     });
 

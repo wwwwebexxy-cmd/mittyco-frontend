@@ -105,7 +105,7 @@ function Signup() {
 
             if (isSuperAdminUser(user)) {
 
-                navigate("/eehook-dashboard");
+                navigate("/mittyco-dashboard");
 
             } else {
 
@@ -151,7 +151,7 @@ function Signup() {
 
                         <h1>Create Account</h1>
 
-                        <p>Create your eehook account and start shopping.</p>
+                        <p>Create your Mittyco account and start shopping.</p>
 
                     </div>
 

@@ -9,7 +9,7 @@ body{
   display: grid;
   place-items: center;
   padding: 24px;
-  background: #f8f9f3;
+  background: #FBFAF4;
 }
 
 .app-loading-card {
@@ -20,7 +20,7 @@ body{
   justify-content: center;
   gap: 14px;
   padding: 28px;
-  border: 1px solid #e2e6e0;
+  border: 1px solid #DCE8DC;
   border-radius: 16px;
   background: #fff;
   box-shadow: 0 12px 35px rgba(75, 99, 109, .08);

@@ -111,15 +111,15 @@ const Invoice = () => {
                     <div className="invoice-company">
 
                         <h1>
-                            eehook
+                            Mittyco
                         </h1>
 
                         <p>
-                            Dubai, United Arab Emirates
+                            59/A, Panayanthatta, Thollathuvayal, Nhekly (P.O.), Peringome, Payyanur, Kannur, Kerala 670353
                         </p>
 
                         <p>
-                            info@eehook.com
+                            infomittyco@gmail.com
                         </p>
 
                     </div>
@@ -410,7 +410,7 @@ const Invoice = () => {
 
                         <p>
                             Thank you for shopping with
-                            <strong> eehook </strong>.
+                            <strong> Mittyco </strong>.
                         </p>
 
                         <p>
@@ -422,7 +422,7 @@ const Invoice = () => {
                             Email :
                             <strong>
                                 {" "}
-                                info@eehook.com
+                                infomittyco@gmail.com
                             </strong>
                         </p>
 

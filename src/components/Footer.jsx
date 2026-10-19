@@ -1,14 +1,9 @@
 import "./../Footer.css";
 
-// import eehook from './../assets/eehook.jpeg'
-import footerlogo from './../assets/footer-logo.png'
+import footerlogo from './../assets/mittyco/mittyco-logo-transparent.png'
 import { Link } from 'react-router-dom';
-import { FaFacebookF, FaInstagram, FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, } from "react-icons/fa";
-import { WHATSAPP_DISPLAY_NUMBER, WHATSAPP_NUMBER } from "../config/contact";
+import { FaInstagram, FaEnvelope, FaMapMarkerAlt, } from "react-icons/fa";
 function Footer() {
-    const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent("Hello")}`;
-
-
     return (
         <div>
 
@@ -17,18 +12,16 @@ function Footer() {
                 <div className="footer-container">
 
                     <div className="footer-column brand">
-                        <img src={footerlogo} alt="Logo" className="footer-logo" />
+                        <img src={footerlogo} alt="Mittyco — Nature's goodness delivered" className="footer-logo" />
+                        <p>Authentic coconut oils and homemade pickles from our kitchen in Kannur, Kerala.<br />FSSAI No: 21325250000662</p>
                     </div>
 
                     <div className="footer-column social-column">
                         <h3>Follow Us</h3>
 
                         <div className="social-icons">
-                            <a href="https://www.instagram.com/eehookuae/" target="_blank" rel="noreferrer" aria-label="eehook UAE on Instagram">
+                            <a href="https://www.instagram.com/mi_ttyco/" target="_blank" rel="noreferrer" aria-label="Mittyco on Instagram">
                                 <FaInstagram />
-                            </a>
-                            <a href="https://www.facebook.com/eehookuae/" target="_blank" rel="noreferrer" aria-label="eehook UAE on Facebook">
-                                <FaFacebookF />
                             </a>
                         </div>
                     </div>
@@ -61,14 +54,12 @@ function Footer() {
                         <h3>Contact Us</h3>
 
                         <ul className="contact">
-                            <li><a href={whatsappUrl} target="_blank" rel="noopener noreferrer"><FaPhoneAlt /> {WHATSAPP_DISPLAY_NUMBER}</a></li>
-
                             <li>
-                                <FaEnvelope />  <a href="mailto:info@eehook.com">info@eehook.com</a>
+                                <FaEnvelope />  <a href="mailto:infomittyco@gmail.com">infomittyco@gmail.com</a>
                             </li>
 
                             <li>
-                                <FaMapMarkerAlt /> Dubai, United Arab Emirates
+                                <FaMapMarkerAlt /> 59/A, Panayanthatta, Thollathuvayal, Nhekly (P.O.), Peringome, Payyanur, Kannur, Kerala 670353
                             </li>
                         </ul>
                     </div>
@@ -87,7 +78,7 @@ function Footer() {
             </footer>
 
             <div className="copyright">
-                © 2026 eehook. All Rights Reserved.
+                © 2026 Mittyco. Nature&apos;s goodness delivered.
             </div>
 
         </div>

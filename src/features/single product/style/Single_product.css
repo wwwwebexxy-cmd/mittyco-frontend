@@ -115,7 +115,7 @@
 }
 
 .product-related-product-info span {
-    color: #4B636D;
+    color: #1F5B3E;
     font-size: 13px;
     font-weight: 600;
 }
@@ -144,11 +144,11 @@
     align-items: center;
     gap: 8px;
     font-size: 14px;
-    color: #4B636D;
+    color: #1F5B3E;
 }
 .toshop a {
     text-decoration: none;
-    color: #4B636D;
+    color: #1F5B3E;
     font-weight: 500;
 }
 .toshop a:hover {

@@ -1,39 +1,39 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400..700;1,400..700&display=swap');
 
 :root {
-  /* ===== EEHOOK BRAND DESIGN TOKENS ===== */
+  /* ===== MITTYCO BRAND DESIGN TOKENS ===== */
 
   /* Primary Colors */
-  --primary-orange: #FF9000;
-  --primary-orange-hover: #D97F00;
-  --primary-orange-light: #FFF3E0;
-  --primary-orange-bg: rgba(255, 144, 0, 0.08);
+  --primary-orange: #f4c430;
+  --primary-orange-hover: #dca900;
+  --primary-orange-light: #fff8d7;
+  --primary-orange-bg: rgba(244, 196, 48, 0.12);
 
   /* Slate Colors */
-  --primary-slate: #4B636D;
-  --primary-slate-hover: #3A4F58;
-  --primary-slate-light: #6B8490;
-  --primary-slate-muted: #8A9DA6;
+  --primary-slate: #1f5b3e;
+  --primary-slate-hover: #17452f;
+  --primary-slate-light: #4f8062;
+  --primary-slate-muted: #7a9986;
 
   /* Background & Surfaces */
-  --background: #F8F9F3;
-  --surface-card: #FFFFFF;
-  --surface-elevated: #FFFFFF;
+  --background: #fbfaf4;
+  --surface-card: #ffffff;
+  --surface-elevated: #fffef9;
 
   /* Text */
-  --text-primary: #4B636D;
-  --text-secondary: #6B8490;
-  --text-muted: #8A9DA6;
+  --text-primary: #183d2b;
+  --text-secondary: #50705c;
+  --text-muted: #77907f;
   --text-on-dark: #FFFFFF;
 
   /* Borders */
-  --border-color: #E2E6E0;
-  --border-light: #EEEFE9;
+  --border-color: #dce8dc;
+  --border-light: #edf3e9;
 
   /* Misc */
-  --shadow-sm: 0 2px 8px rgba(75, 99, 109, 0.06);
-  --shadow-md: 0 8px 24px rgba(75, 99, 109, 0.08);
-  --shadow-lg: 0 16px 40px rgba(75, 99, 109, 0.10);
+  --shadow-sm: 0 2px 8px rgba(31, 91, 62, 0.08);
+  --shadow-md: 0 8px 24px rgba(31, 91, 62, 0.11);
+  --shadow-lg: 0 16px 40px rgba(31, 91, 62, 0.14);
 }
 
 body {
@@ -58,8 +58,8 @@ html {
 
 /* Selection highlight using brand color */
 ::selection {
-  background: rgba(255, 144, 0, 0.2);
-  color: #4B636D;
+  background: rgba(244, 196, 48, 0.25);
+  color: #183d2b;
 }
 
 /* --- Global Skeleton Loading --- */

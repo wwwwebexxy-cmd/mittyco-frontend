@@ -22,7 +22,7 @@
 .eehook-checkout-title{
     font-size:34px;
     font-weight:600;
-    color: #4B636D;
+    color: #1F5B3E;
     margin-bottom:8px;
     letter-spacing:-.5px;
 }
@@ -63,7 +63,7 @@
 }
 
 .eehook-checkout-card:hover{
-    border-color: #E2E6E0;
+    border-color: #DCE8DC;
     box-shadow:0 8px 24px rgba(0,0,0,.06);
 }
 
@@ -78,12 +78,12 @@
 .eehook-checkout-card h2{
     font-size:21px;
     font-weight:600;
-    color: #4B636D;
+    color: #1F5B3E;
 }
 
 .eehook-add-address-btn{
     border:none;
-    background:#FF9000;
+    background:#F4C430;
     color: #FFFFFF;
     padding:10px 18px;
     border-radius:8px;
@@ -94,7 +94,7 @@
 }
 
 .eehook-add-address-btn:hover{
-    background:#D97F00;
+    background:#DCA900;
 }
 
 .eehook-add-address-btn:active{
@@ -119,17 +119,17 @@
 
 .eehook-address-card:hover{
     border-color:#c7c7c7;
-    background:#F8F9F3;
+    background:#FBFAF4;
 }
 
 .eehook-address-card.active{
-    border-color:#FF9000;
+    border-color:#F4C430;
     background:#FFF5E5;
 }
 
 .eehook-address-card input{
     margin-top:4px;
-    accent-color:#FF9000;
+    accent-color:#F4C430;
 }
 
 .eehook-address-info{
@@ -140,13 +140,13 @@
 .eehook-address-info h4{
     font-size:17px;
     font-weight:600;
-    color: #4B636D;
+    color: #1F5B3E;
     margin-bottom:6px;
 }
 
 .eehook-address-info p{
     font-size:14px;
-    color: #4B636D;
+    color: #1F5B3E;
     line-height:1.6;
     margin-bottom:2px;
 }
@@ -170,13 +170,13 @@
 .eehook-payment-title{
     font-size:16px;
     font-weight:600;
-    color: #4B636D;
+    color: #1F5B3E;
     margin-bottom:5px;
 }
 
 .eehook-payment-card p{
     font-size:14px;
-    color: #4B636D;
+    color: #1F5B3E;
     line-height:1.6;
 }
 
@@ -193,13 +193,13 @@
 
 .eehook-payment-option:hover,
 .eehook-payment-option.active{
-    border-color:#FF9000;
+    border-color:#F4C430;
     background:#FFF8EC;
 }
 
 .eehook-payment-option input{
     margin-top:3px;
-    accent-color:#FF9000;
+    accent-color:#F4C430;
 }
 
 .eehook-payment-option span{
@@ -209,7 +209,7 @@
 }
 
 .eehook-payment-option strong{
-    color:#4B636D;
+    color:#1F5B3E;
     font-size:14px;
 }
 
@@ -224,7 +224,7 @@
     border:1px dashed #d7d7d7;
     border-radius:10px;
     text-align:center;
-    color: #4B636D;
+    color: #1F5B3E;
     font-size:15px;
 }
 .eehook-summary-item{
@@ -268,7 +268,7 @@
 .eehook-summary-details h4{
     font-size:16px;
     font-weight:600;
-    color: #4B636D;
+    color: #1F5B3E;
     margin-bottom:6px;
     line-height:1.4;
     overflow-wrap:anywhere;
@@ -277,14 +277,14 @@
 
 .eehook-summary-details p{
     font-size:13px;
-    color: #4B636D;
+    color: #1F5B3E;
     margin-bottom:4px;
 }
 
 .eehook-summary-price{
     font-size:17px;
     font-weight:600;
-    color: #4B636D;
+    color: #1F5B3E;
     white-space:nowrap;
 }
 
@@ -301,7 +301,7 @@
     align-items:center;
     margin-bottom:14px;
     font-size:15px;
-    color: #4B636D;
+    color: #1F5B3E;
 }
 
 .eehook-summary-row:last-child{
@@ -312,7 +312,7 @@
     min-width: 0;
     overflow-wrap: anywhere;
     font-weight:500;
-    color: #4B636D;
+    color: #1F5B3E;
 }
 
 .eehook-summary-row span:first-child{
@@ -329,7 +329,7 @@
 }
 
 .eehook-grand-total strong{
-    color:#4B636D;
+    color:#1F5B3E;
 }
 
 .eehook-shipping-free{
@@ -347,7 +347,7 @@
 .eehook-payment-note{
     margin-top:18px;
     font-size:13px;
-    color: #4B636D;
+    color: #1F5B3E;
     text-align:center;
     line-height:1.6;
 }
@@ -356,7 +356,7 @@
     height:52px;
     border:none;
     border-radius:10px;
-    background:#FF9000;
+    background:#F4C430;
     color: #FFFFFF;
     font-size:15px;
     font-weight:600;
@@ -365,7 +365,7 @@
 }
 
 .eehook-checkout-btn:hover{
-    background:#D97F00;
+    background:#DCA900;
     box-shadow:0 10px 24px rgba(139,47,69,.22);
 }
 
@@ -386,7 +386,7 @@
     min-height:60vh;
     font-size:18px;
     font-weight:600;
-    color:#4B636D;
+    color:#1F5B3E;
 
 }
 
@@ -406,7 +406,7 @@
     margin:0;
     font-size:18px;
     font-weight:600;
-    color: #4B636D;
+    color: #1F5B3E;
 }
 
 .eehook-grand-total small{
@@ -420,7 +420,7 @@
     margin:0;
     font-size:28px;
     font-weight:700;
-    color:#FF9000;
+    color:#F4C430;
     letter-spacing:-.5px;
 }
 

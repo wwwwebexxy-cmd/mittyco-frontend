@@ -8,9 +8,8 @@
 .currency-symbol {
     flex: 0 0 auto;
     color: currentColor;
-    width: .96em;
-    height: .84em;
-    display: block;
+    min-width: .7em;
+    display: inline-block;
     align-self: baseline;
 }
 

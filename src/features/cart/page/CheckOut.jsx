@@ -104,14 +104,14 @@ const Checkout = () => {
         });
 
         return [
-            "Hello eehook Team,",
+            "Hello Mittyco Team,",
             "",
             `I placed an order via WhatsApp. Order: ORD-${String(orderId).padStart(6, "0")}`,
             "",
             "Items:",
             ...itemLines,
             "",
-            `Total: AED ${Number(total || 0).toFixed(2)}`,
+            `Total: ₹${Number(total || 0).toFixed(2)}`,
             "",
             "Delivery address:",
             address.full_name,

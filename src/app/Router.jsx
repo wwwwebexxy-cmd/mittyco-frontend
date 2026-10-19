@@ -25,12 +25,12 @@ import ProtectedRoute from '../features/auth/page/ProtectedRoute'
 import Unauthorized from '../features/auth/page/Unauthorized'
 function LegacyOrderDetailsRedirect() {
     const { id } = useParams();
-    return <Navigate to={`/eehook-dashboard/orders/${id}`} replace />;
+    return <Navigate to={`/mittyco-dashboard/orders/${id}`} replace />;
 }
 
 function LegacyDashboardPathRedirect() {
     const location = useLocation();
-    const nextPath = location.pathname.replace(/^\/(?:order-dashboard|orderdashboard)/i, "/eehook-dashboard");
+    const nextPath = location.pathname.replace(/^\/(?:order-dashboard|orderdashboard)/i, "/mittyco-dashboard");
     return <Navigate to={`${nextPath}${location.search}${location.hash}`} replace />;
 }
 
@@ -78,54 +78,54 @@ function Router() {
 
                 <Route path='login' element={<Login />} />
                 <Route path='admin-login' element={<AdminLogin />} />
-                <Route path='eehook-dashboard/admin-login' element={<AdminLogin />} />
+                <Route path='mittyco-dashboard/admin-login' element={<AdminLogin />} />
                 <Route path='unauthorized' element={<Unauthorized />} />
                 <Route path='signup' element={<Signup />} />
                 <Route path='forgot-password' element={<ForgotPassword />} />
                 <Route path="/reset-password/:uidb64/:token" element={<ResetPassword />} />
 
 
-                <Route path="eehook-dashboard" element={
+                <Route path="mittyco-dashboard" element={
                     <AdminRoute>
                         <OrderDashboard />
                     </AdminRoute>
                 } />
-                <Route path="eehook-dashboard/product-variants" element={<AdminRoute><Navigate to="/eehook-dashboard/products" replace /></AdminRoute>} />
-                <Route path="eehook-dashboard/product-variant-units" element={<AdminRoute><Navigate to="/eehook-dashboard/products" replace /></AdminRoute>} />
-                <Route path="eehook-dashboard/product-images" element={<AdminRoute><Navigate to="/eehook-dashboard/products" replace /></AdminRoute>} />
-                <Route path="eehook-dashboard/products/new" element={<AdminRoute><OrderDashboard /></AdminRoute>} />
-                <Route path="eehook-dashboard/products/:id" element={<AdminRoute><OrderDashboard /></AdminRoute>} />
-                <Route path="eehook-dashboard/products/:id/edit" element={<AdminRoute><OrderDashboard /></AdminRoute>} />
-                <Route path="eehook-dashboard/hero-banners/new" element={<AdminRoute><OrderDashboard /></AdminRoute>} />
-                <Route path="eehook-dashboard/hero-banners/:id/edit" element={<AdminRoute><OrderDashboard /></AdminRoute>} />
-                <Route path="eehook-dashboard/promo-banners/new" element={<AdminRoute><OrderDashboard /></AdminRoute>} />
-                <Route path="eehook-dashboard/promo-banners/:id/edit" element={<AdminRoute><OrderDashboard /></AdminRoute>} />
-                <Route path="eehook-dashboard/hero-side-banners/new" element={<AdminRoute><OrderDashboard /></AdminRoute>} />
-                <Route path="eehook-dashboard/hero-side-banners/:id/edit" element={<AdminRoute><OrderDashboard /></AdminRoute>} />
-                <Route path="eehook-dashboard/coupons/new" element={<AdminRoute><OrderDashboard /></AdminRoute>} />
-                <Route path="eehook-dashboard/coupons/:id/edit" element={<AdminRoute><OrderDashboard /></AdminRoute>} />
-                <Route path="eehook-dashboard/trust-benefits/new" element={<AdminRoute><OrderDashboard /></AdminRoute>} />
-                <Route path="eehook-dashboard/product-highlights/new" element={<AdminRoute><OrderDashboard /></AdminRoute>} />
-                <Route path="eehook-dashboard/product-highlights/:id/edit" element={<AdminRoute><OrderDashboard /></AdminRoute>} />
-                <Route path="eehook-dashboard/product-messages/new" element={<AdminRoute><OrderDashboard /></AdminRoute>} />
-                <Route path="eehook-dashboard/product-messages/:id/edit" element={<AdminRoute><OrderDashboard /></AdminRoute>} />
-                <Route path="eehook-dashboard/welcome-bonuses/new" element={<AdminRoute><OrderDashboard /></AdminRoute>} />
-                <Route path="eehook-dashboard/welcome-bonuses/:id/edit" element={<AdminRoute><OrderDashboard /></AdminRoute>} />
-                <Route path="eehook-dashboard/coupon-usages/new" element={<AdminRoute><OrderDashboard /></AdminRoute>} />
-                <Route path="eehook-dashboard/coupon-usages/:id/edit" element={<AdminRoute><OrderDashboard /></AdminRoute>} />
-                <Route path="eehook-dashboard/token-blacklist" element={<AdminRoute><Navigate to="/eehook-dashboard/token-blacklist/outstanding-tokens" replace /></AdminRoute>} />
-                <Route path="eehook-dashboard/token-blacklist/outstanding-tokens" element={<AdminRoute><OrderDashboard /></AdminRoute>} />
-                <Route path="eehook-dashboard/token-blacklist/blacklisted-tokens" element={<AdminRoute><OrderDashboard /></AdminRoute>} />
-                <Route path="eehook-dashboard/:section" element={
+                <Route path="mittyco-dashboard/product-variants" element={<AdminRoute><Navigate to="/mittyco-dashboard/products" replace /></AdminRoute>} />
+                <Route path="mittyco-dashboard/product-variant-units" element={<AdminRoute><Navigate to="/mittyco-dashboard/products" replace /></AdminRoute>} />
+                <Route path="mittyco-dashboard/product-images" element={<AdminRoute><Navigate to="/mittyco-dashboard/products" replace /></AdminRoute>} />
+                <Route path="mittyco-dashboard/products/new" element={<AdminRoute><OrderDashboard /></AdminRoute>} />
+                <Route path="mittyco-dashboard/products/:id" element={<AdminRoute><OrderDashboard /></AdminRoute>} />
+                <Route path="mittyco-dashboard/products/:id/edit" element={<AdminRoute><OrderDashboard /></AdminRoute>} />
+                <Route path="mittyco-dashboard/hero-banners/new" element={<AdminRoute><OrderDashboard /></AdminRoute>} />
+                <Route path="mittyco-dashboard/hero-banners/:id/edit" element={<AdminRoute><OrderDashboard /></AdminRoute>} />
+                <Route path="mittyco-dashboard/promo-banners/new" element={<AdminRoute><OrderDashboard /></AdminRoute>} />
+                <Route path="mittyco-dashboard/promo-banners/:id/edit" element={<AdminRoute><OrderDashboard /></AdminRoute>} />
+                <Route path="mittyco-dashboard/hero-side-banners/new" element={<AdminRoute><OrderDashboard /></AdminRoute>} />
+                <Route path="mittyco-dashboard/hero-side-banners/:id/edit" element={<AdminRoute><OrderDashboard /></AdminRoute>} />
+                <Route path="mittyco-dashboard/coupons/new" element={<AdminRoute><OrderDashboard /></AdminRoute>} />
+                <Route path="mittyco-dashboard/coupons/:id/edit" element={<AdminRoute><OrderDashboard /></AdminRoute>} />
+                <Route path="mittyco-dashboard/trust-benefits/new" element={<AdminRoute><OrderDashboard /></AdminRoute>} />
+                <Route path="mittyco-dashboard/product-highlights/new" element={<AdminRoute><OrderDashboard /></AdminRoute>} />
+                <Route path="mittyco-dashboard/product-highlights/:id/edit" element={<AdminRoute><OrderDashboard /></AdminRoute>} />
+                <Route path="mittyco-dashboard/product-messages/new" element={<AdminRoute><OrderDashboard /></AdminRoute>} />
+                <Route path="mittyco-dashboard/product-messages/:id/edit" element={<AdminRoute><OrderDashboard /></AdminRoute>} />
+                <Route path="mittyco-dashboard/welcome-bonuses/new" element={<AdminRoute><OrderDashboard /></AdminRoute>} />
+                <Route path="mittyco-dashboard/welcome-bonuses/:id/edit" element={<AdminRoute><OrderDashboard /></AdminRoute>} />
+                <Route path="mittyco-dashboard/coupon-usages/new" element={<AdminRoute><OrderDashboard /></AdminRoute>} />
+                <Route path="mittyco-dashboard/coupon-usages/:id/edit" element={<AdminRoute><OrderDashboard /></AdminRoute>} />
+                <Route path="mittyco-dashboard/token-blacklist" element={<AdminRoute><Navigate to="/mittyco-dashboard/token-blacklist/outstanding-tokens" replace /></AdminRoute>} />
+                <Route path="mittyco-dashboard/token-blacklist/outstanding-tokens" element={<AdminRoute><OrderDashboard /></AdminRoute>} />
+                <Route path="mittyco-dashboard/token-blacklist/blacklisted-tokens" element={<AdminRoute><OrderDashboard /></AdminRoute>} />
+                <Route path="mittyco-dashboard/:section" element={
                     <AdminRoute>
                         <OrderDashboard />
                     </AdminRoute>
                 } />
-                <Route path="eehook-dashboard/orders/:id" element={<AdminRoute><OrderDashboard /></AdminRoute>} />
-                <Route path="eehook-dashboard/:section/:id/view" element={<AdminRoute><OrderDashboard /></AdminRoute>} />
-                <Route path="eehook-dashboard/:section/:id/edit" element={<AdminRoute><OrderDashboard /></AdminRoute>} />
+                <Route path="mittyco-dashboard/orders/:id" element={<AdminRoute><OrderDashboard /></AdminRoute>} />
+                <Route path="mittyco-dashboard/:section/:id/view" element={<AdminRoute><OrderDashboard /></AdminRoute>} />
+                <Route path="mittyco-dashboard/:section/:id/edit" element={<AdminRoute><OrderDashboard /></AdminRoute>} />
                 <Route
-                    path="/eehook-dashboard/details/:id"
+                    path="/mittyco-dashboard/details/:id"
                     element={
                         <AdminRoute>
                             <LegacyOrderDetailsRedirect />
@@ -133,7 +133,7 @@ function Router() {
                     }
                 />
                 <Route
-                    path="/eehook-dashboard/invoice/:id"
+                    path="/mittyco-dashboard/invoice/:id"
                     element={
                         <AdminRoute>
                             <Invoice />
