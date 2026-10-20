@@ -71,7 +71,10 @@
 }
 
 .product-image-topbar {
-    position: relative;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
     z-index: 5;
     display: flex;
     align-items: center;
@@ -79,8 +82,9 @@
     flex-wrap: nowrap;
     gap: 6px;
     min-height: 0;
-    padding: 9px 48px 6px 12px;
-    background: #f7f7f7;
+    padding: 0 48px 0 0;
+    background: transparent;
+    pointer-events: none;
 }
 
 .product-image-stage {
@@ -110,7 +114,7 @@
     margin: 0;
     padding: 5px 9px;
     border: 0;
-    border-radius: 4px;
+    border-radius: 0 4px 4px 0;
     background: var(--product-highlight-bg, #1B4D44);
     color: var(--product-highlight-color, #FFFFFF);
     box-shadow: 0 3px 8px rgba(23, 59, 53, .16);
@@ -205,13 +209,13 @@
     bottom: 12px;
     left: 50%;
     transform: translateX(-50%);
-    width: 90%;
+    width: 76%;
     background-color: #1F5B3E;
     color: #FFFFFF;
     border: none;
-    padding: 11px 0;
+    padding: 9px 0;
     font-family: Inter, Arial, Helvetica, sans-serif;
-    font-size: 0.7rem;
+    font-size: 0.62rem;
     font-weight: 700;
     letter-spacing: 1.5px;
     cursor: pointer;
@@ -252,6 +256,40 @@
     background: none !important;
 
     padding: 0;
+    align-self: flex-start;
+}
+
+.product-message-rail {
+    display: inline-flex;
+    align-self: flex-start;
+    align-items: center;
+    width: fit-content;
+    max-width: 100%;
+    box-sizing: border-box;
+    min-width: 0;
+    margin-top: 6px;
+    padding: 6px 8px;
+    border: 1px solid color-mix(in srgb, var(--product-message-bg, #EAF4FF) 72%, #1F5B3E);
+    border-radius: 6px;
+    background: var(--product-message-bg, #EAF4FF);
+    color: var(--product-message-color, #173B35);
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: .015em;
+    line-height: 1.2;
+    text-transform: uppercase;
+    animation: product-message-in 260ms ease both;
+}
+
+.product-message-label {
+    min-width: 0;
+    overflow-wrap: anywhere;
+    white-space: normal;
+}
+
+@keyframes product-message-in {
+    from { opacity: 0; transform: translateY(4px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 /* Elegant Title */
@@ -518,7 +556,7 @@
 
     .product-image-topbar {
         gap: 4px;
-        padding: 7px 38px 5px 3px;
+        padding: 0 38px 0 0;
     }
 
     .quick-add-bar {
@@ -526,13 +564,13 @@
         bottom: 7px;
         left: 50%;
         transform: translateX(-50%);
-        width: 82%;
+        width: 70%;
         background-color: #1F5B3E;
         color: #FFFFFF;
         border: none;
-        padding: 7px 0;
+        padding: 6px 0;
         font-family: Inter, Arial, Helvetica, sans-serif;
-        font-size: 0.5rem;
+        font-size: 0.46rem;
         font-weight: 600;
         letter-spacing: 1.5px;
         cursor: pointer;

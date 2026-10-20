@@ -10,6 +10,7 @@ import defaultImage from "../../../assets/image_not_available.png";
 import { hasAuthSession } from "../../auth/authUtils";
 import DirhamAmount from "../../../components/DirhamAmount";
 import ProductHighlightRail from "../../home/components/ProductHighlightRail";
+import ProductMessageRail from "../../home/components/ProductMessageRail";
 
 const hasValue = (value) => value !== null && value !== undefined && value !== "";
 
@@ -158,6 +159,7 @@ function Product_card({ products = [], isLoading, error, page = 1, pageSize = 14
                             </span>
                         </div>
                     </div>
+                    <ProductMessageRail messages={product.product_messages} />
                     <span className={`product-availability ${availability.toLowerCase().includes("out") ? "is-unavailable" : ""}`}>{availability}</span>
                 </div>
             </article>;
