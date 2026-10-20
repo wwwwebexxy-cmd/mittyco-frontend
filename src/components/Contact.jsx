@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./../Contact.css"
 import { getAuthValue } from "../features/auth/authUtils";
+import { CONTACT_WHATSAPP_NUMBER } from "../config/contact";
 
 const ContactUs = () => {
     const [formData, setFormData] = useState(() => ({
@@ -18,7 +19,7 @@ const ContactUs = () => {
         });
     };
 
-    const sendEmail = (e) => {
+    const sendWhatsApp = (e) => {
         e.preventDefault();
 
         const { name, email, phone, subject, message } = formData;
@@ -43,7 +44,8 @@ ${message}
 
 Thank you.`;
 
-        window.location.href = `mailto:infomittyco@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(text)}`;
+        const whatsappUrl = `https://wa.me/${CONTACT_WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
+        window.location.href = whatsappUrl;
     };
 
     return (
@@ -63,7 +65,7 @@ Thank you.`;
                     Have a question about our collections,
                     an order, or need assistance?
                     Fill out the form below and send us
-                    a message directly by email.
+                    a message directly on WhatsApp.
                 </p>
 
             </div>
@@ -105,7 +107,7 @@ Thank you.`;
                         <h4>Need Immediate Help?</h4>
 
                         <p>
-                            Email us at infomittyco@gmail.com and our team will assist you as soon as possible.
+                            WhatsApp us and our team will assist you as soon as possible.
                         </p>
 
                     </div>
@@ -116,7 +118,7 @@ Thank you.`;
 
                 <form
                     className="contact-form"
-                    onSubmit={sendEmail}
+                    onSubmit={sendWhatsApp}
                 >
 
                     <div className="input-group">
@@ -244,7 +246,7 @@ Thank you.`;
                         type="submit"
                     >
 
-                            Send via Email →
+                            Send via WhatsApp →
 
                     </button>
 

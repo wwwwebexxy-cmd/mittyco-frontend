@@ -547,12 +547,12 @@
 .hero-page-wrapper .shop-btn-premium {
     width: fit-content;
     max-width: 100%;
-    min-height: 0;
-    padding: clamp(2px, .2vw, 3px) clamp(4px, .4vw, 7px);
-    gap: clamp(2px, .2vw, 3px);
-    font-size: clamp(8px, .65vw, 9px);
-    line-height: 1.1;
-    letter-spacing: .25px;
+    min-height: 42px;
+    padding: clamp(9px, .75vw, 13px) clamp(18px, 1.35vw, 26px);
+    gap: clamp(6px, .45vw, 10px);
+    font-size: clamp(11px, .9vw, 14px);
+    line-height: 1.2;
+    letter-spacing: .5px;
     background: transparent;
     color: #fff;
     border-color: rgba(255, 255, 255, .75);
