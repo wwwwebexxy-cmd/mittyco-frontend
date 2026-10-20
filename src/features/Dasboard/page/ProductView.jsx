@@ -12,6 +12,17 @@ const EMPTY_VALUE = "\u2014";
 const rows = (payload) => Array.isArray(payload) ? payload : Array.isArray(payload?.results) ? payload.results : [];
 const idOf = (value) => value?.id ?? value?.pk ?? value;
 const labelOf = (value) => typeof value === "object" ? value?.name || value?.title || `#${idOf(value)}` : value || EMPTY_VALUE;
+const imagePath = (image) => String(image?.image || image?.url || "").split("?")[0].replace(/^\/+/, "").toLowerCase();
+const uniqueImages = (images = []) => {
+    const seen = new Set();
+    return images.filter((image) => {
+        const path = imagePath(image);
+        const identity = path ? `path:${path}` : `id:${idOf(image)}`;
+        if (seen.has(identity)) return false;
+        seen.add(identity);
+        return true;
+    });
+};
 
 function textValue(value) {
     if (Array.isArray(value)) return value.filter(Boolean).join("\n").trim();
@@ -66,7 +77,7 @@ export default function ProductView() {
                     return {
                         ...variant,
                         units: rows(units.data),
-                        images: rows(images.data).sort((a, b) => Number(a.position ?? 0) - Number(b.position ?? 0)),
+                        images: uniqueImages(rows(images.data).sort((a, b) => Number(a.position ?? 0) - Number(b.position ?? 0))),
                     };
                 }));
                 if (active) {
@@ -161,6 +172,11 @@ export default function ProductView() {
                 </div>
                 {variants.length ? variants.map((variant, index) => {
                     const primary = variant.images.find((image) => image.is_primary) || variant.images[0];
+                    const additionalImages = variant.images.filter((image) => {
+                        if (!primary) return true;
+                        const primaryPath = imagePath(primary);
+                        return idOf(image) !== idOf(primary) && (!primaryPath || imagePath(image) !== primaryPath);
+                    });
                     const colorLabel = lookupLabel(variant.color, references.colors);
                     return <article className="product-view-variant" key={idOf(variant) || index}>
                         <div className="product-view-variant-head">
@@ -172,7 +188,7 @@ export default function ProductView() {
                             {primary?.image && <img src={getImageUrl(primary.image)} alt={colorLabel} onError={(event) => { event.currentTarget.src = defaultImage; }} />}
                         </div>
                         {variant.price_type === "multiple" && <div className="product-view-units"><div className="product-view-units-heading"><span>Unit</span><span>Price / Stock</span></div>{variant.units.map((unit, unitIndex) => <div key={idOf(unit) || unitIndex}><span>{lookupLabel(unit.unit_type, references.unitTypes)} / {lookupLabel(unit.unit, references.units)}{unit.sku && <small>SKU: {unit.sku}</small>}</span><strong>{money(unit.price)} · Stock {unit.stock ?? 0}</strong></div>)}</div>}
-                        <div className="product-view-images">{variant.images.length ? variant.images.map((image, imageIndex) => <img key={idOf(image) || imageIndex} src={getImageUrl(image.image)} alt={`${product.name} ${colorLabel} image ${imageIndex + 1}`} onError={(event) => { event.currentTarget.src = defaultImage; }} />) : <img src={defaultImage} alt="Default product" />}</div>
+                        {additionalImages.length > 0 && <div className="product-view-images">{additionalImages.map((image, imageIndex) => <img key={idOf(image) || imageIndex} src={getImageUrl(image.image)} alt={`${product.name} ${colorLabel} image ${imageIndex + 2}`} onError={(event) => { event.currentTarget.src = defaultImage; }} />)}</div>}
                     </article>;
                 }) : <EmptyState title="No variants" description="This product has no variants yet." />}
             </section>

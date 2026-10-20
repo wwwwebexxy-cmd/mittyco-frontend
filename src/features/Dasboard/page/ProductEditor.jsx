@@ -33,6 +33,26 @@ function toOptions(payload, labelKeys = ["name", "title", "email", "code"]) {
 }
 
 function sortImages(images = []) { return [...images].sort((a, b) => Number(a.position ?? 0) - Number(b.position ?? 0)); }
+function imageIdentity(image) {
+    const path = String(image?.image || image?.url || "").split("?")[0].replace(/^\/+/, "").toLowerCase();
+    if (path) return `path:${path}`;
+    if (image?.file) return `file:${image.file.name}:${image.file.size}:${image.file.lastModified}`;
+    return `id:${idOf(image)}`;
+}
+function deduplicateImages(images = []) {
+    const seen = new Set();
+    const duplicateIds = [];
+    const unique = sortImages(images).filter((image) => {
+        const identity = imageIdentity(image);
+        if (seen.has(identity)) {
+            if (idOf(image)) duplicateIds.push(idOf(image));
+            return false;
+        }
+        seen.add(identity);
+        return true;
+    });
+    return { images: unique, duplicateIds };
+}
 
 export default function ProductEditor({ readOnly = false }) {
     const { id } = useParams();
@@ -202,7 +222,7 @@ export default function ProductEditor({ readOnly = false }) {
 
 async function loadProduct(id) {
     const productResponse = await getResource("products", id); const product = normalizeProduct(productResponse.data); const variantResponse = await listResource("product-variants", { product: id, page_size: 500 });
-    const variants = await Promise.all(rows(variantResponse.data).map(async (variant) => { const [unitResponse, imageResponse] = await Promise.all([listResource("product-variant-units", { variant: idOf(variant), page_size: 500 }), listResource("product-images", { variant: idOf(variant), page_size: 500 })]); return { ...variant, product: valueOf(variant.product) || id, color: valueOf(variant.color), sku: variant.sku || "", price_type: variant.price_type || "single", price: variant.price ?? "", stock: variant.stock ?? "", units: rows(unitResponse.data).map(normalizeUnit), images: sortImages(rows(imageResponse.data).map((image) => ({ ...image, file: null }))), deletedUnits: [], deletedImages: [] }; }));
+    const variants = await Promise.all(rows(variantResponse.data).map(async (variant) => { const [unitResponse, imageResponse] = await Promise.all([listResource("product-variant-units", { variant: idOf(variant), page_size: 500 }), listResource("product-images", { variant: idOf(variant), page_size: 500 })]); const deduplicated = deduplicateImages(rows(imageResponse.data).map((image) => ({ ...image, file: null }))); return { ...variant, product: valueOf(variant.product) || id, color: valueOf(variant.color), sku: variant.sku || "", price_type: variant.price_type || "single", price: variant.price ?? "", stock: variant.stock ?? "", units: rows(unitResponse.data).map(normalizeUnit), images: deduplicated.images, deletedUnits: [], deletedImages: deduplicated.duplicateIds }; }));
     return { product, variants };
 }
 
@@ -274,6 +294,6 @@ function UnitTable({ units, unitTypes, unitOptions, errors, variantIndex, onAdd,
 function changeVariantType(variants, setVariants, index, nextType) { const variant = variants[index]; if (variant.price_type === nextType) return; if (nextType === "single" && variant.units.length && !window.confirm("Switching to Single Price will clear the unit rows. Continue?")) return; setVariants((current) => current.map((item, itemIndex) => itemIndex === index ? { ...item, price_type: nextType, units: nextType === "single" ? [] : item.units, deletedUnits: nextType === "single" ? [...item.deletedUnits, ...item.units.map(idOf).filter(Boolean)] : item.deletedUnits, price: nextType === "multiple" ? "" : item.price, stock: nextType === "multiple" ? 0 : item.stock } : item)); }
 function addUnit(setVariants, index) { setVariants((current) => current.map((variant, variantIndex) => variantIndex === index ? { ...variant, units: [...variant.units, { unit_type: "", unit: "", sku: "", price: "", stock: "" }] } : variant)); }
 function removeUnit(setVariants, index, unitIndex) { if (!window.confirm("Delete this unit?")) return; setVariants((current) => current.map((variant, variantIndex) => { if (variantIndex !== index) return variant; const unit = variant.units[unitIndex]; return { ...variant, units: variant.units.filter((_, currentIndex) => currentIndex !== unitIndex), deletedUnits: idOf(unit) ? [...variant.deletedUnits, idOf(unit)] : variant.deletedUnits }; })); }
-function addImage(setVariants, index, file) { setVariants((current) => current.map((variant, variantIndex) => variantIndex === index ? { ...variant, images: [...variant.images, { file, image: "", is_primary: variant.images.length === 0, position: variant.images.length }] } : variant)); }
+function addImage(setVariants, index, file) { setVariants((current) => current.map((variant, variantIndex) => { if (variantIndex !== index || variant.images.some((image) => imageIdentity({ file }) === imageIdentity(image))) return variant; return { ...variant, images: [...variant.images, { file, image: "", is_primary: variant.images.length === 0, position: variant.images.length }] }; })); }
 function removeImage(setVariants, index, imageIndex) { if (!window.confirm("Delete this product image?")) return; setVariants((current) => current.map((variant, variantIndex) => { if (variantIndex !== index) return variant; const image = variant.images[imageIndex]; const images = variant.images.filter((_, currentIndex) => currentIndex !== imageIndex); if (image.is_primary && images[0]) images[0] = { ...images[0], is_primary: true }; return { ...variant, images, deletedImages: idOf(image) ? [...variant.deletedImages, idOf(image)] : variant.deletedImages }; })); }
 function moveImage(setVariants, index, from, to) { if (from === to) return; setVariants((current) => current.map((variant, variantIndex) => { if (variantIndex !== index) return variant; const images = [...variant.images]; const [moved] = images.splice(from, 1); images.splice(to, 0, moved); return { ...variant, images }; })); }

@@ -340,7 +340,7 @@ function Shop_by_category({ categories: providedCategories }) {
                                     >
 
                                         <div className="image-circle">
-                                            <img src={getImageUrl(item.image)} alt={item.name} />
+                                            <img src={getImageUrl(item.image) || getImageUrl(selectedCategory.image)} alt={item.name} />
                                         </div>
 
                                         <p>
